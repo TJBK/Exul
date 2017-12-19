@@ -12,6 +12,7 @@ client.mangers.dashboard = new Mangers.DashboardManger(client)
 client.mangers.config = new Mangers.ConfigManger(client)
 client.mangers.commands = new Mangers.CommandsManger(client, db)
 client.mangers.server = new Mangers.ServerManger(client, db)
+client.mangers.time = new Mangers.WorldTimerManager(client, db)
 
 let config
 
@@ -24,6 +25,7 @@ client.on('ready', () => {
   })
   client.mangers.dashboard.userInfo()
   client.mangers.commands.load()
+  client.mangers.time.start()
 })
 
 client.on('message', (msg) => client.mangers.commands.checkMessage(msg))

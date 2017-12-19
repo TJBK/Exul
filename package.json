@@ -10,6 +10,7 @@
   "scripts": {
     "debug-start": "nodemon ./src/server.js --exec babel-node --presets es2015,stage-2",
     "build": "babel ./src -d ./dist",
+    "install": "npm install && npm install --only=dev",
     "bg": "screen -dmS bot npm run start",
     "start": "node dist/server.js",
     "win": "start.bat",
@@ -19,6 +20,7 @@
   "author": "TJBK",
   "license": "MIT",
   "dependencies": {
+    "all": "0.0.0",
     "chalk": "^2.1.0",
     "discord.js": "git://github.com/hydrabolt/discord.js.git#master",
     "fs-extra": "^4.0.1",

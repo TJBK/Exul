@@ -10,7 +10,7 @@ echo ##########################################
 IF EXIST %cd%\node_modules (
     goto run
 ) ELSE (
-    CALL npm install
+    CALL npm run install
     goto run
 )
 

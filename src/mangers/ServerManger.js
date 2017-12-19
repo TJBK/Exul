@@ -8,7 +8,8 @@ class ServerManger {
     let db = this.db
     let server = new db.ServerDB({
       _id: id,
-      prefix: '>?'
+      prefix: '>?',
+      countryTimeChannel: []
     })
     server.save((err, serverInfo) => { if (err) throw err })
     this.updateStatus()
