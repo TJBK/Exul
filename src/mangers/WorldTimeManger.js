@@ -14,9 +14,9 @@ class WorldTimerManager {
 
   run () {
     let guilds = this.client.guilds.array()
-    for (let i = 0; i < guilds.length; i++) {
+    for (let i in guilds) {
       let channels = guilds[i].channels.array().filter(x => 'TextChannel')
-      for (let i = 0; i < channels.length; i++) {
+      for (let i in channels) {
         if (channels[i].type === 'text') {
           channels[i].setTopic(this.time(), 'Channel')
         }
@@ -36,7 +36,7 @@ class WorldTimerManager {
       {area: 'EET', zone: 2}
     ]
     let str = ''
-    for (let i = 0; i < time.length; i++) {
+    for (let i in time) {
       let t = time[i]
       str += ' | ' + ct(t.area, t.zone)
     }
