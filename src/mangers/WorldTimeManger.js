@@ -1,3 +1,5 @@
+import moment from 'moment-timezone'
+
 class WorldTimerManager {
   constructor (client, db) {
     this.client = client
@@ -26,29 +28,25 @@ class WorldTimerManager {
   time () {
     let ct = this.workOutTime
     let time = [
-      {area: 'London', zone: 0},
-      {area: 'Paris', zone: 1},
-      {area: 'Moscow', zone: 3},
-      {area: 'Sydney', zone: 11},
-      {area: 'Wellington', zone: 12},
-      {area: 'NYC', zone: -5},
-      {area: 'LA', zone: -8}
+      {area: 'Europe/London', city: 'London'},
+      {area: 'Europe/Paris', city: 'Paris'},
+      {area: 'Europe/Moscow', city: 'Moscow'},
+      {area: 'Australia/Sydney', city: 'Sydney'},
+      {area: 'Asia/Bangkok', city: 'Bangkok'},
+      {area: 'America/New_York', city: 'NYC'},
+      {area: 'America/Los_Angeles', city: 'LA'}
     ]
     let str = ''
     for (let i in time) {
       let t = time[i]
-      str += ' | ' + ct(t.area, t.zone)
+      str += ' | ' + ct(t.city, t.area)
     }
     let newStr = str.substr(3)
     return newStr
   }
 
-  workOutTime (area, offset) {
-    let date = new Date()
-    let utc = date.getTime() - (date.getTimezoneOffset() * 60000)
-    let now = new Date(utc + (3600000 * offset))
-    let split = now.toLocaleString().split(' ').splice(1)
-    return area + ':' + split.toLocaleString()
+  workOutTime (city, area) {
+    return city + ':' + moment().tz(area).format('H:mm')
   }
 }
 
