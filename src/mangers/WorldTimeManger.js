@@ -7,7 +7,6 @@ class WorldTimerManager {
   start () {
     this.run()
     this.client.setInterval(() => {
-      console.log('run')
       this.run()
     }, 60000)
   }
@@ -27,13 +26,13 @@ class WorldTimerManager {
   time () {
     let ct = this.workOutTime
     let time = [
-      {area: 'PST', zone: -8},
-      {area: 'MST', zone: -7},
-      {area: 'CST', zone: -6},
-      {area: 'BST', zone: 0},
-      {area: 'WET', zone: 0},
-      {area: 'CET', zone: 1},
-      {area: 'EET', zone: 2}
+      {area: 'London', zone: 0},
+      {area: 'Paris', zone: 1},
+      {area: 'Moscow', zone: 3},
+      {area: 'Sydney', zone: 11},
+      {area: 'Wellington', zone: 12},
+      {area: 'NYC', zone: -5},
+      {area: 'LA', zone: -8}
     ]
     let str = ''
     for (let i in time) {
