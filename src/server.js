@@ -1,8 +1,8 @@
 import discord from 'discord.js'
 import * as db from './db'
 import * as Mangers from './mangers'
-import {initUtl} from './utl'
-import {green} from 'chalk'
+import { initUtl } from './utl'
+import { green } from 'chalk'
 
 let client = global.client = exports.client = new discord.Client()
 
@@ -37,10 +37,9 @@ client.on('guildMemberRemove', (member) => client.mangers.server.userLeave(membe
 client.on('warn', console.warn)
 client.on('error', console.error)
 
-let login = () => {
-  client.login(config.token)
-    .then(tokenA => console.log('Logged in with ' + green.bold(tokenA) + ''))
-    .catch(console.error)
+let login = async () => {
+  let login = await client.login(config.token)
+  console.log('Logged in with ' + green.bold(login) + '')
 }
 
 try {

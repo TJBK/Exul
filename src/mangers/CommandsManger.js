@@ -38,25 +38,7 @@ class CommandsManger {
     let cmd = commands.find(x => x.name === cmdtext)
     try {
       cmd.process(msg, suffix, this.client, serverDoc, db, utl)
-    } catch (err) {};
-  }
-
-  help (msg, commands, serverDoc) {
-    let cms = {title: 'Commands List'}
-    cms.fields = []
-    for (let i in commands) {
-      let cmi = {
-        name: '' + serverDoc.prefix + '' + commands[i].name + ' ' + commands[i].use + '',
-        value: commands[i].desc
-      }
-      cms.fields.push(cmi)
-    }
-    try {
-      msg.delete()
-      msg.channel.send({embed: cms, split: true}).then(message => message.delete({timeout: 60000}))
-    } catch (err) {
-      throw err
-    }
+    } catch (err) {}
   }
 }
 

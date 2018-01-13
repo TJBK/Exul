@@ -5,7 +5,6 @@ let commands = {
   desc: 'provides info about the bot',
   process: async (msg, suffix, client, serverDoc, db, utl) => {
     try {
-      let link = await client.generateInvite(473033745)
       msg.channel.send({
         embed: {
           title: 'Info about me :3',
@@ -23,11 +22,6 @@ let commands = {
           {
             name: 'Framework',
             value: 'I\'m made with the master branch of [discord.js](https://discord.js.org/#/)',
-            inline: true
-          },
-          {
-            name: 'Invite Me :heart:',
-            value: 'You can invite me [here](' + link + ')',
             inline: true
           }],
           footer: {

@@ -5,10 +5,7 @@ let commands = {
   desc: 'Get a users avatar',
   process: async (msg, suffix, client, serverDoc, db, utl) => {
     let mention = msg.mentions.users.first()
-    let av = mention.avatarURL({
-      format: 'png',
-      size: 2048
-    })
+    let av = mention.avatarURL()
     try {
       msg.delete()
       msg.channel.send({

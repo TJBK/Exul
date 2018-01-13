@@ -8,9 +8,7 @@ class WorldTimerManager {
 
   start () {
     this.run()
-    this.client.setInterval(() => {
-      this.run()
-    }, 60000)
+    this.client.setInterval(() => this.run(), 600000)
   }
 
   run () {

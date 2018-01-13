@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import * as schemas from './databaseSchema/index'
-import {green} from 'chalk'
+import { green } from 'chalk'
 
 let startDB = (dbName) => {
   try {
@@ -17,4 +17,4 @@ db.once('open', () => console.log('DB ' + green('connected')))
 
 let ServerDB = mongoose.model('serverdb', schemas.serverScheme)
 
-export {startDB, ServerDB}
+export { startDB, ServerDB }
