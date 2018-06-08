@@ -23,6 +23,10 @@ class CommandsManger {
     let client = this.client
     let db = this.db
     if (msg.author.id === client.user.id) return
+    if (msg.author.id === '172763890994642944' | msg.author.id === '401605862755663872' && msg.content.startsWith('.lice')) {
+      let args = msg.content.split(' ')
+      msg.channel.send(msg.author.username + ' has given ' + args[1] + ' ' + args[2] + ' lice')
+    }
     db.ServerDB.findOne({_id: serverID}, async (err, serverDoc) => {
       if (err) throw err
       if (!serverDoc) client.mangers.server.addServer(serverID)
